@@ -1,6 +1,6 @@
 {
   "name": "food-rest-v4-src",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "UNLICENCED",
   "scripts": {
     "build": "nx run-many --target=build --all",
