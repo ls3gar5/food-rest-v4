@@ -1,0 +1,62 @@
+{
+  "name": "food-rest-v4-src",
+  "version": "0.0.0",
+  "license": "UNLICENCED",
+  "scripts": {
+    "build": "nx run-many --target=build --all",
+    "dev": "nx serve api",
+    "lint": "nx run-many --target=lint --all",
+    "test": "NODE_ENV=test nx run-many --target=test --all",
+    "test:coverage": "NODE_ENV=test nx run-many --target=test --all --code-coverage",
+    "release": "yarn version --patch"
+  },
+  "private": true,
+  "dependencies": {
+    "@nestjs/common": "^10.0.2",
+    "@nestjs/core": "^10.0.2",
+    "@nestjs/platform-express": "^10.0.2",
+    "@nestjs/swagger": "^8.1.0",
+    "@pepa/common": "4.0.0",
+    "@pepa/platform-rest": "4.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "dotenv": "^17.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@nestjs/testing": "^10.0.2",
+    "@nx/eslint": "21.1.2",
+    "@nx/eslint-plugin": "21.1.2",
+    "@nx/jest": "21.1.2",
+    "@nx/js": "21.1.2",
+    "@nx/node": "21.1.2",
+    "@nx/web": "21.1.2",
+    "@nx/webpack": "21.1.2",
+    "@nx/workspace": "20.8.0",
+    "@pepa/schematics": "4.0.0",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/jest": "^29.5.12",
+    "@types/node": "~18.16.9",
+    "@types/supertest": "^6.0.2",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0",
+    "nx": "20.8.0",
+    "prettier": "^2.6.2",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.19.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "author": "Personal Pay"
+}
