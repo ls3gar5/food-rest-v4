@@ -36,7 +36,7 @@
         "build"
       ],
       "options": {
-        "buildTarget": "api:build",
+        "buildTarget": "api:build:development",
         "runBuildTargetDependencies": false
       },
       "configurations": {
