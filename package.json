@@ -12,12 +12,15 @@
   },
   "private": true,
   "dependencies": {
+    "@nestjs/axios": "^4.0.1",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/swagger": "^8.1.0",
     "@pepa/common": "4.0.0",
+    "@pepa/http-client": "^4.0.0",
     "@pepa/platform-rest": "4.0.0",
+    "axios": "^1.12.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "dotenv": "^17.2.1",
@@ -30,7 +33,10 @@
     "@nx/eslint": "21.1.2",
     "@nx/eslint-plugin": "21.1.2",
     "@nx/jest": "21.1.2",
+    "@nx/js": "^16.0.0",
+    "@nx/node": "^16.0.0",
     "@nx/web": "21.1.2",
+    "@nx/webpack": "^16.0.0",
     "@nx/workspace": "20.8.0",
     "@pepa/schematics": "4.0.0",
     "@swc-node/register": "~1.9.1",
@@ -50,10 +56,7 @@
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.7.2",
-    "typescript-eslint": "^8.19.0",
-    "@nx/webpack": "^16.0.0",
-    "@nx/node": "^16.0.0",
-    "@nx/js": "^16.0.0"
+    "typescript-eslint": "^8.19.0"
   },
   "engines": {
     "node": ">=22.0.0"

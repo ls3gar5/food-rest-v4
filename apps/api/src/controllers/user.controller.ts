@@ -19,11 +19,14 @@ export class UserController {
   }
 
   @Get('findall')
-  @ApiOperation({ summary: 'Get a user by id' })
-  @ApiResponse({ status: 200, description: 'User found.' })
-  @ApiResponse({ status: 404, description: 'User not found.' })
+  @ApiOperation({ summary: 'Get all users' })
+  @ApiResponse({ status: 200, description: 'Users found.' })
+  @ApiResponse({ status: 404, description: 'Users not found.' })
   async findall() {
-    return this.userService.findAll;
+    console.log('Fetching all users');
+    const users = await this.userService.findAll();
+    console.log('Fetched users:', users);
+    return users;
   }
 
   @Get(':id')

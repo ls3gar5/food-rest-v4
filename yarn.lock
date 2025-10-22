@@ -1412,6 +1412,11 @@
     "@emnapi/runtime" "^1.1.0"
     "@tybys/wasm-util" "^0.9.0"
 
+"@nestjs/axios@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/axios/-/axios-4.0.1.tgz#7ff73f47727b67dc04410ac6e9b3329401ebbb65"
+  integrity sha512-68pFJgu+/AZbWkGu65Z3r55bTsCPlgyKaV4BSG8yUAD72q1PPuyVRgUwFv6BxdnibTUHlyxm06FmYWNC+bjN7A==
+
 "@nestjs/common@^10.0.2":
   version "10.4.20"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-10.4.20.tgz#db021ccfcae398c1cd6c8bc808a169285978d687"
@@ -2350,6 +2355,21 @@
     tslib "^2.3.0"
     winston "^3.17.0"
     winston-transport "^4.9.0"
+
+"@pepa/http-client-core@4.0.0":
+  version "4.0.0"
+  resolved "https://gitlab.com/api/v4/projects/33396870/packages/npm/@pepa/http-client-core/-/@pepa/http-client-core-4.0.0.tgz#3c73f9841c089e2d7f5c9b8865c04cadc85108fc"
+  integrity sha1-PHP5hBwIni1/XJuIZcBMrchRCPw=
+  dependencies:
+    tslib "^2.3.0"
+
+"@pepa/http-client@^4.0.0":
+  version "4.0.0"
+  resolved "https://gitlab.com/api/v4/projects/33396870/packages/npm/@pepa/http-client/-/@pepa/http-client-4.0.0.tgz#a4ca28277ce4fc07762db3d1bee912a5f45399ab"
+  integrity sha1-pMooJ3zk/Ad2LbPRvukSpfRTmas=
+  dependencies:
+    "@pepa/http-client-core" "4.0.0"
+    tslib "^2.3.0"
 
 "@pepa/platform-rest@4.0.0":
   version "4.0.0"
@@ -3398,7 +3418,7 @@ available-typed-arrays@^1.0.7:
   dependencies:
     possible-typed-array-names "^1.0.0"
 
-axios@^1.0.0, axios@^1.7.4, axios@^1.8.3:
+axios@^1.0.0, axios@^1.12.2, axios@^1.7.4, axios@^1.8.3:
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.12.2.tgz#6c307390136cf7a2278d09cec63b136dfc6e6da7"
   integrity sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==

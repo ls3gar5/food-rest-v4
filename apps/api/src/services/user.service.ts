@@ -1,12 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from '../dto/user.dto';
+// import { HttpService } from '@nestjs/axios';
+import { HttpClient, InjectHttpClient } from '@pepa/http-client';
 
 @Injectable()
 export class UserService {
-  constructor() { /* empty */ }
+constructor(// private readonly httpService: HttpService,
+   @InjectHttpClient('SERVICE_API') private readonly httppepa: HttpClient
+) {}
 
   async findAll() {
-    return { message: 'This action returns all users' };
+    try {
+      // console.log('START Fetched Pokemon data:');
+      // const response = await this.httpService.axiosRef.get('https://pokeapi.co/api/v2/pokemon-color/1');
+      // const pokes = response.data.data;
+      // console.log('Fetched Pokemon data:', pokes);
+      // return pokes;
+      const response = await this.httppepa.get('https://pokeapi.co/api/v2/pokemon-color/1');
+      return response.data;
+    } catch (error) {
+      throw new Error(`Failed to fetch Pokemon data: ${error.message}`);
+    }
   }
 
   async findOne(id: number) {
