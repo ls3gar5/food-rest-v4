@@ -8,7 +8,10 @@
     "lint": "nx run-many --target=lint --all",
     "test": "NODE_ENV=test nx run-many --target=test --all",
     "test:coverage": "NODE_ENV=test nx run-many --target=test --all --code-coverage",
-    "release": "yarn version --patch"
+    "release": "yarn version --patch",
+    "test:unit": "NODE_ENV=test MAX_BINDED_DEVICES=1 nx run-many --target=test --all --parallel=5 --testPathPattern=unit",
+    "test:e2e": "NODE_ENV=test nx run-many --target=test --all --parallel=5 --testPathPattern=e2e",
+    "test:all": "NODE_ENV=test nx run-many --target=test --all --parallel=5"
   },
   "private": true,
   "dependencies": {
@@ -18,7 +21,7 @@
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/swagger": "^8.1.0",
     "@pepa/common": "4.0.0",
-    "@pepa/http-client": "^4.0.0",
+    "@pepa/http-client": "4.0.0",
     "@pepa/platform-rest": "4.0.0",
     "axios": "^1.12.2",
     "class-transformer": "^0.5.1",

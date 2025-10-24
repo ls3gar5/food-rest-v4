@@ -43,3 +43,6 @@ Thumbs.db
 
 # Environments
 .env
+
+package-lock.json
+yarn.lock
