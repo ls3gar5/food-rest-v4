@@ -20,7 +20,7 @@ const loggerOptions: RestApplicationLoggerOptions = {
 };
 
 export const options: RestApplicationOptions = {
-  apiPrefix: '',
+  apiPrefix: 'v1',
   apiPrefixOptions: {
     exclude: ['health']
   },

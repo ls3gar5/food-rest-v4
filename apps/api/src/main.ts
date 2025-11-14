@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 import { environment } from './config';
 import { options } from './app.options';
 import { loadRuntimeContext } from './runtime-context.factory';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
 
@@ -16,6 +17,14 @@ async function bootstrap() {
     options,
     runtimeContext,
   );
+
+  const config = new DocumentBuilder()
+    .setTitle('APICO example')
+    .setDescription('APICO description')
+    .setVersion('1.0')
+    .build();
+  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, documentFactory);
 
   await app.listen(port, () => {
     Logger.log(`Running ${runtimeContext.appName}@${runtimeContext.version} as ${runtimeContext.stage} at http://localhost:${port}`, 'Main');

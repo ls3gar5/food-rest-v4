@@ -6,3 +6,5 @@ export interface AppConfiguration {
   countryCode: CountryCodeEnum;
   port: number;
 }
+
+export const CHECKOUT_SERVICE_API = 'b2b-api-checkout';
