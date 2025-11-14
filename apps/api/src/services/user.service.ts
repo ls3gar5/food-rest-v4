@@ -2,11 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from '../dto/user.dto';
 // import { HttpService } from '@nestjs/axios';
 import { HttpClient, InjectHttpClient } from '@pepa/http-client';
+import { CryptoService } from '@pepa/crypto';
+import { InjectCacheStore, CacheStore } from "@pepa/cache";
 
 @Injectable()
 export class UserService {
 constructor(// private readonly httpService: HttpService,
-   @InjectHttpClient('SERVICE_API') private readonly httppepa: HttpClient
+   @InjectHttpClient('SERVICE_API') private readonly httppepa: HttpClient,
+   private readonly cryptoService: CryptoService,
+   @InjectCacheStore('checkout-login') private readonly cacheStore: CacheStore
 ) {}
 
   async findAll() {
@@ -16,6 +20,7 @@ constructor(// private readonly httpService: HttpService,
       // const pokes = response.data.data;
       // console.log('Fetched Pokemon data:', pokes);
       // return pokes;
+
       const response = await this.httppepa.get('https://pokeapi.co/api/v2/pokemon-color/1');
       return response.data;
     } catch (error) {
@@ -24,7 +29,13 @@ constructor(// private readonly httpService: HttpService,
   }
 
   async findOne(id: number) {
-    return { message: `This action returns user #${id}` };
+    const encrypted = await this.cryptoService.hash('mySensitiveData');
+
+    await this.cacheStore.set('1', encrypted);
+    console.log('Cache set response:');
+    const data = await this.cacheStore.get('1');
+    console.log('Encrypted data:', data);
+    return { message: `This action returns user # ${data}` };
   }
 
   async create(createUserDto: CreateUserDto) {
@@ -39,3 +50,5 @@ constructor(// private readonly httpService: HttpService,
     return { message: `This action removes user #${id}` };
   }
 }
+
+

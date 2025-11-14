@@ -29,4 +29,10 @@ export class HealthController {
     // Aquí podrías agregar lógicas reales de chequeo.
     return { status: 'READY' };
   }
+
+  @Get()
+  healthOk() {
+    // Aquí podrías agregar lógicas reales de chequeo.
+    return { status: 'READY' };
+  }
 }
