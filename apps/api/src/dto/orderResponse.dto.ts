@@ -1,3 +1,5 @@
+import { IsNotEmpty } from "class-validator"
+
 export interface OrderHashedDto {
   createdAt: string
   orderStatus: string
@@ -28,7 +30,29 @@ export interface OrderHashedDto {
   msecondsExpiracy: number
 }
 
+export type OrderResponseDto = Omit<OrderHashedDto, 'storeName'> & {
+  sellerName: string
+}
+
 export interface SellerAdditionalData {
   campoDinamico_1: string
   external_account_id: number
+}
+
+export function formatOrderHashed(dto: OrderHashedDto): OrderResponseDto {
+  const { storeName, ...rest } = dto
+  return {
+    ...rest,
+    sellerName: storeName,
+  }
+}
+
+export class GetOrderQueryDto {
+    @IsNotEmpty()
+    // optionally use @IsUUID() if the hash is a UUID
+    // @IsUUID()
+    orderHashId: string;
+
+    @IsNotEmpty()
+    orderSessionId: string;
 }
