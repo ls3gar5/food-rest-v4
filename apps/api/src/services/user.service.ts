@@ -49,6 +49,16 @@ constructor(// private readonly httpService: HttpService,
   async remove(id: number) {
     return { message: `This action removes user #${id}` };
   }
+
+  async findPokeNames() {
+    try {
+      const response = await this.httppepa.get('http://localhost:3010/health-check-poke');
+      console.log('Fetched Pokemon names data:', JSON.stringify(response.data));
+      return response.data?.data;
+    } catch (error) {
+      throw new Error(`Failed to fetch Pokemon data: ${error.message}`);
+    }
+  }
 }
 
 

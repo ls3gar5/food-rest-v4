@@ -18,6 +18,14 @@ export class UserController {
     return this.userService.create(createUserDto);
   }
 
+  @Get('pokenames')
+  @ApiOperation({ summary: 'Get a user by id' })
+  @ApiResponse({ status: 200, description: 'User found.' })
+  @ApiResponse({ status: 404, description: 'User not found.' })
+  async findPokeNames() {
+    return await this.userService.findPokeNames();
+  }
+
   @Get('findall')
   @ApiOperation({ summary: 'Get all users' })
   @ApiResponse({ status: 200, description: 'Users found.' })
