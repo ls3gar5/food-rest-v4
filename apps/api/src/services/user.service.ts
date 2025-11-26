@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from '../dto/user.dto';
 // import { HttpService } from '@nestjs/axios';
 import { HttpClient, InjectHttpClient } from '@pepa/http-client';
@@ -15,16 +15,15 @@ constructor(// private readonly httpService: HttpService,
 
   async findAll() {
     try {
-      // console.log('START Fetched Pokemon data:');
-      // const response = await this.httpService.axiosRef.get('https://pokeapi.co/api/v2/pokemon-color/1');
-      // const pokes = response.data.data;
-      // console.log('Fetched Pokemon data:', pokes);
-      // return pokes;
+      console.log('START Fetched Pokemon data:');
 
-      const response = await this.httppepa.get('https://pokeapi.co/api/v2/pokemon-color/1');
-      return response.data;
+      // const response = await this.httppepa.get('https://pokeapi.co/api/v2/pokemon-color/1');
+      // return response.data;
+      const response = await this.httppepa.get('http://localhost:3010/health-check-poke');
+      console.log('Fetched Pokemon data:', JSON.stringify(response.data));
+      return response.data; 
     } catch (error) {
-      throw new Error(`Failed to fetch Pokemon data: ${error.message}`);
+      throw new HttpException(`Failed to fetch Pokemon data: ${error.message}`, error.status || 500);
     }
   }
 
