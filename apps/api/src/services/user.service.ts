@@ -51,11 +51,18 @@ constructor(// private readonly httpService: HttpService,
 
   async findPokeNames() {
     try {
+      console.log('Returning cached Pokemon names data');
+      const data = await this.cacheStore.get('poke_names');
+      console.log('Cached data:', data);
+      if (data) {
+        console.log('LEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO');
+        return data;
+      }
       const response = await this.httppepa.get('http://localhost:3010/health-check-poke');
-      console.log('Fetched Pokemon names data:', JSON.stringify(response.data));
+      await this.cacheStore.set('poke_names', response.data?.data, { ttl: 10 });
       return response.data?.data;
     } catch (error) {
-      throw new Error(`Failed to fetch Pokemon data: ${error.message}`);
+      throw new HttpException(`Failed to fetch Pokemon data: ${error.message}`, error.status || 500);
     }
   }
 }

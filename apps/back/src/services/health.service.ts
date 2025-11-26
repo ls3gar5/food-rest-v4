@@ -11,7 +11,7 @@ export class HealthService {
       try {
         const url = 'https://pokeapi.co/api/v2/pokemon-color/1';
         const response = await this.http.get(url);
-        this.logger.verbose('Health check successful', response);
+        this.logger.verbose('Health check successful');
         return response?.data?.names;
       } catch (error) {
           this.logger.error('Error during health check', {
