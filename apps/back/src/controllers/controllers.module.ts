@@ -6,6 +6,7 @@ import { HttpClientModule } from '@pepa/http-client';
 import { CHECKOUT_SERVICE_API } from '../config';
 import { BnplController } from './bnpl.controller';
 import { BnplService } from '../services/bnpl.service';
+import { DeviceController } from './device.controller';
 
 @Module({
     imports: [    
@@ -21,7 +22,7 @@ import { BnplService } from '../services/bnpl.service';
             }
         ]),
   ],
-  controllers: [HealthController, BnplController],
+  controllers: [HealthController, BnplController, DeviceController],
   providers: [HealthService, BnplService],
 })
 export class ControllersModule {}
