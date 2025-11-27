@@ -7,7 +7,7 @@ import { loadRuntimeContext } from './runtime-context.factory';
 
 async function bootstrap() {
 
-  const port = 3006;
+  const port = 3010;
   const runtimeContext = await loadRuntimeContext('-back');
 
   // Rest application factory

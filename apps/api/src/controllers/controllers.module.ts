@@ -16,7 +16,7 @@ import { CHECKOUT_SERVICE_API } from '../config';
                 maxRedirects: 5,
             }),
           }),
-            HttpClientModule.forRoot([
+          HttpClientModule.forRoot([
             {
               name: 'SERVICE_API',
             },
