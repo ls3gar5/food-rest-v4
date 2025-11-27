@@ -4,6 +4,9 @@ import { HealthService } from '../services/health.service';
 import { HttpModule } from '@nestjs/axios';
 import { HttpClientModule } from '@pepa/http-client';
 import { CHECKOUT_SERVICE_API } from '../config';
+import { BnplController } from './bnpl.controller';
+import { BnplService } from '../services/bnpl.service';
+import { DeviceController } from './device.controller';
 
 @Module({
     imports: [    
@@ -19,7 +22,7 @@ import { CHECKOUT_SERVICE_API } from '../config';
             }
         ]),
   ],
-  controllers: [HealthController],
-  providers: [HealthService],
+  controllers: [HealthController, BnplController, DeviceController],
+  providers: [HealthService, BnplService],
 })
 export class ControllersModule {}

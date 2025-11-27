@@ -8,3 +8,4 @@ export interface AppConfiguration {
 }
 
 export const CHECKOUT_SERVICE_API = 'b2b-api-checkout';
+export const CHECKOUT_CACHE = 'checkout-back';
