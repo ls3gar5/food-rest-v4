@@ -26,6 +26,7 @@
     "@pepa/crypto": "^4.0.0-beta",
     "@pepa/http-client": "4.0.0",
     "@pepa/platform-rest": "4.0.0",
+    "@types/ua-parser-js": "^0.7.39",
     "axios": "^1.12.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
