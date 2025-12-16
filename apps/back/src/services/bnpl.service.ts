@@ -3,12 +3,17 @@ import { CHECKOUT_CACHE, CHECKOUT_SERVICE_API } from "../config";
 import { Logger } from "@nestjs/common";
 import { SimulationRequestDto, SimulationResponseDto } from "../types";
 import { CacheStore, InjectCacheStore } from "@pepa/cache";
+import { SellerChannel } from "../entities/SellerChannel";
+import { FindOneOptions } from "typeorm";
+import { RepositoryMethodsService, SaleChannel } from "@telecom-argentina/b2b-checkout-entity-lib";
+
 
 export class BnplService {
-    constructor(@InjectHttpClient(CHECKOUT_SERVICE_API) private readonly http: HttpClient,
-        @InjectCacheStore(CHECKOUT_CACHE) private readonly cacheStore: CacheStore) {}
 
-     private readonly logger = new Logger(BnplService.name);
+    constructor(@InjectHttpClient(CHECKOUT_SERVICE_API) private readonly http: HttpClient,
+        @InjectCacheStore(CHECKOUT_CACHE) private readonly cacheStore: CacheStore,
+        private readonly logger: Logger,
+        private readonly repositoryMethods: RepositoryMethodsService) {}
 
     async simulation(simulationDto: SimulationRequestDto): Promise<SimulationResponseDto> {
 
@@ -38,5 +43,14 @@ export class BnplService {
             });
             throw error;
         }
+    }    
+    
+    
+    async getSellerChannels() {
+        const queryData: FindOneOptions<SellerChannel> = { where: { sellerChannelCode: '006002' } };
+        const findSellerChannel = await this.repositoryMethods.findOne(queryData, 'SellerChannel');
+        this.logger.verbose({ message: 'Found Seller Channel', sellerChannel: findSellerChannel || [] });
+
+        return findSellerChannel;
     }
 }

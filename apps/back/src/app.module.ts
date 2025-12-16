@@ -1,18 +1,33 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { ControllersModule } from './controllers';
 import { CacheStoreModule } from '@pepa/cache';
 import { CHECKOUT_CACHE } from './config';
+import { B2bCheckoutEntityLibModule} from '@telecom-argentina/b2b-checkout-entity-lib';
 
 @Module({
   imports: [
-    ControllersModule,
     CacheStoreModule.forRoot(
     {
         connectionString: 'redis://localhost:6379',
         password: 'yourStrongPassword123',
     },
     [{ name: CHECKOUT_CACHE }]),
+    B2bCheckoutEntityLibModule.forRoot({
+            databaseOptions: {
+                type: 'postgres',
+                port: 5432,
+                username: 'postgres',
+                password: 'admin',
+                database: 'postgres',
+                synchronize: false,
+                logging: false,
+                host: 'localhost',
+                hostReader: 'localhost',
+                name: 'default',
+            },
+        }),
+    ControllersModule,
   ],
-  providers: [],
+  providers: [Logger],
 })
 export class AppModule {}

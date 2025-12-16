@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { HealthController } from './health.controller';
 import { HealthService } from '../services/health.service';
 import { HttpModule } from '@nestjs/axios';
@@ -20,9 +20,9 @@ import { DeviceController } from './device.controller';
             {
               name: CHECKOUT_SERVICE_API,
             }
-        ]),
+        ])
   ],
   controllers: [HealthController, BnplController, DeviceController],
-  providers: [HealthService, BnplService],
+  providers: [Logger, HealthService, BnplService]
 })
 export class ControllersModule {}
