@@ -2,7 +2,7 @@ import { BaseEntity, Column, CreateDateColumn, Entity, Index, PrimaryGeneratedCo
 
 @Entity('seller_channel', { schema: 'public' })
 @Index('seller_channel_pk', ['id'])
-export class SellerChannel  extends BaseEntity {
+export class SellerChannelTest  extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number; 
 

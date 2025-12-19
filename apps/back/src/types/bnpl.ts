@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger"
 import { IsNumber, IsString } from "class-validator"
+import { IsNull } from "typeorm"
 
 export class SimulationRequestDto {
   @IsNumber()
@@ -31,7 +32,7 @@ export interface SimulationResponseDto {
   installmentsPlans: InstallmentsPlan[]
 }
 
-export interface SegmentData {
+export class SegmentData {
   mid: string
   mcc: string
 }
@@ -67,3 +68,5 @@ export interface Rates {
   cftna: number
   cft: number
 }
+
+

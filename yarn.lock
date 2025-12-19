@@ -3432,7 +3432,7 @@
   dependencies:
     "@swc/counter" "^0.1.3"
 
-"@telecom-argentina/b2b-checkout-entity-lib@^0.0.105":
+"@telecom-argentina/b2b-checkout-entity-lib@0.0.105":
   version "0.0.105"
   resolved "https://gitlab.com/api/v4/projects/23905190/packages/npm/@telecom-argentina/b2b-checkout-entity-lib/-/@telecom-argentina/b2b-checkout-entity-lib-0.0.105.tgz#89bc90fac4fdddb57deb288e85146dff7c8b10ca"
   integrity sha1-ibyQ+sT93bV96yiOhRRt/3yLEMo=
