@@ -9,7 +9,7 @@ import { B2bCheckoutEntityLibModule} from '@telecom-argentina/b2b-checkout-entit
     CacheStoreModule.forRoot(
     {
         connectionString: 'redis://localhost:6379',
-        password: 'yourStrongPassword123',
+        password: process.env.REDIS_PASSWORD,
     },
     [{ name: CHECKOUT_CACHE }]),
     B2bCheckoutEntityLibModule.forRoot({

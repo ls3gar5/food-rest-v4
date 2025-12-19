@@ -14,7 +14,7 @@ import { CacheStoreModule } from '@pepa/cache';
     CacheStoreModule.forRoot(
     {
         connectionString: 'redis://localhost:6379',
-        password: 'yourStrongPassword123',
+        password: process.env.REDIS_PASSWORD,
     },
     [{ name: 'checkout-login' }]),
   ],
